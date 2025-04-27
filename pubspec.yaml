@@ -11,12 +11,29 @@ dependencies:
   flutter:
     sdk: flutter
 
+  # UI
   cupertino_icons: ^1.0.8
+
+  # Networking
+  http: ^1.3.0
+
+  # State Management
+  flutter_riverpod: ^2.6.1
+
+  # JSON Serialization
+  json_annotation: ^4.9.0
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
 
+  # Code generation
+  build_runner: ^2.4.15
+
+  # JSON Serialization
+  json_serializable: ^6.9.5
+
+  # Linting
   flutter_lints: ^5.0.0
 
 flutter:
