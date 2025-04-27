@@ -1,7 +1,12 @@
+import 'package:json_annotation/json_annotation.dart';
+import 'package:kite/data/empty_string_to_list_json_converter.dart';
 import 'package:kite/model/article.dart';
 import 'package:kite/model/domain.dart';
 import 'package:kite/model/perspective.dart';
 
+part 'story.g.dart';
+
+@JsonSerializable()
 class Story {
   Story({
     required this.clusterNumber,
@@ -66,28 +71,45 @@ class Story {
   // TODO: Check the correctness of the types below this line
   final String geopoliticalContext;
   final String historicalBackground;
+  @EmptyStringToListJsonConverter()
   final List<String> internationalReactions;
   final String humanitarianImpact;
   final String economicImplications;
+  @EmptyStringToListJsonConverter()
   final List<String> timeline;
   final String futureOutlook;
   final List keyPlayers;
+  @EmptyStringToListJsonConverter()
   final List<String> technicalDetails;
   final String businessAngleText;
+  @EmptyStringToListJsonConverter()
   final List<String> businessAnglePoints;
+  @EmptyStringToListJsonConverter()
   final List<String> userActionItems;
+  @EmptyStringToListJsonConverter()
   final List<String> scientificSignificance;
+  @EmptyStringToListJsonConverter()
   final List<String> travelAdvisory;
   final String destinationHighlights;
   final String culinarySignificance;
+  @EmptyStringToListJsonConverter()
   final List<String> performanceStatistics;
   final String leagueStandings;
   final String diyTips;
   final String designPrinciples;
+  @EmptyStringToListJsonConverter()
   final List<String> userExperienceImpact;
+  @EmptyStringToListJsonConverter()
   final List<String> gameplayMechanics;
+  @EmptyStringToListJsonConverter()
   final List<String> industryImpact;
   final String technicalSpecifications;
   final List<Article> articles;
   final List<Domain> domains;
+
+  factory Story.fromJson(Map<String, dynamic> json) => _$StoryFromJson(json);
+}
+
+List<String> stringListFromJson(List<dynamic> json) {
+  return json.map((e) => e.toString()).toList();
 }

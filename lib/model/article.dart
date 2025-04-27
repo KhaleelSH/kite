@@ -1,3 +1,8 @@
+import 'package:json_annotation/json_annotation.dart';
+
+part 'article.g.dart';
+
+@JsonSerializable()
 class Article {
   Article({
     required this.title,
@@ -14,4 +19,6 @@ class Article {
   final String date;
   final String image;
   final String imageCaption;
+
+  factory Article.fromJson(Map<String, dynamic> json) => _$ArticleFromJson(json);
 }
