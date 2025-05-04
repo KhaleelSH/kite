@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:kite/core/theme/dark_app_theme.dart';
 import 'package:kite/core/theme/light_app_theme.dart';
-import 'package:kite/features/splash/ui/screen/splash_screen.dart';
+import 'package:kite/ui/splash/screen/splash_screen.dart';
 
 class KiteApp extends StatelessWidget {
   const KiteApp({super.key});
