@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:kite/features/feed/ui/screen/feed_screen.dart';
+import 'package:kite/core/theme/dark_app_theme.dart';
+import 'package:kite/core/theme/light_app_theme.dart';
+import 'package:kite/features/splash/ui/screen/splash_screen.dart';
 
 class KiteApp extends StatelessWidget {
   const KiteApp({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(title: 'Kite', home: const FeedScreen());
+    return MaterialApp(title: 'Kite News', theme: lightTheme, darkTheme: darkTheme, home: const SplashScreen());
   }
 }
