@@ -39,8 +39,8 @@ class _AnimatedKiteLogoState extends State<AnimatedKiteLogo> with SingleTickerPr
             tag: 'kite-logo',
             child: SvgPicture.asset(
               'assets/svg/kite_${Theme.of(context).brightness.name}.svg',
-              width: 100,
-              height: 100,
+              width: 80,
+              height: 80,
             ),
           ),
         );
