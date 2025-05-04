@@ -17,7 +17,7 @@ class NewsDataProvider {
   final KiteHttpClient _httpClient;
 
   Future<List<Category>> getNewsCategories() async {
-    final response = await _httpClient.get('kites.json');
+    final response = await _httpClient.get('kite.json');
     if (response.statusCode == 200) {
       final List<dynamic> data = jsonDecode(response.body)['categories'];
       return data.map((category) => Category.fromJson(category)).toList();
