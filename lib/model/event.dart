@@ -4,7 +4,7 @@ part 'event.g.dart';
 
 @JsonSerializable()
 class Event {
-  Event({required this.year, required this.content, required this.sortYear, required this.type});
+  const Event({required this.year, required this.content, required this.sortYear, required this.type});
 
   final String year;
   final String content;

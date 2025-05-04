@@ -4,7 +4,7 @@ part 'perspective.g.dart';
 
 @JsonSerializable()
 class Perspective {
-  Perspective({required this.text, required this.sources});
+  const Perspective({required this.text, required this.sources});
 
   final String text;
   final List<PerspectiveSource> sources;
@@ -14,7 +14,7 @@ class Perspective {
 
 @JsonSerializable()
 class PerspectiveSource {
-  PerspectiveSource({required this.name, required this.url});
+  const PerspectiveSource({required this.name, required this.url});
 
   final String name;
   final String url;

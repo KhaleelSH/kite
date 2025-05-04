@@ -4,7 +4,7 @@ part 'category.g.dart';
 
 @JsonSerializable()
 class Category {
-  Category({required this.name, required this.file});
+  const Category({required this.name, required this.file});
 
   final String name;
   final String file;

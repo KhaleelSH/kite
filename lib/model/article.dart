@@ -4,7 +4,7 @@ part 'article.g.dart';
 
 @JsonSerializable()
 class Article {
-  Article({
+  const Article({
     required this.title,
     required this.link,
     required this.domain,

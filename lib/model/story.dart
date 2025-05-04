@@ -8,7 +8,7 @@ part 'story.g.dart';
 
 @JsonSerializable()
 class Story {
-  Story({
+  const Story({
     required this.clusterNumber,
     required this.uniqueDomains,
     required this.numberOfTitles,

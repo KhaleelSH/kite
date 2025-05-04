@@ -4,7 +4,7 @@ part 'domain.g.dart';
 
 @JsonSerializable()
 class Domain {
-  Domain({required this.name, required this.favicon});
+  const Domain({required this.name, required this.favicon});
 
   final String name;
   final String favicon;
