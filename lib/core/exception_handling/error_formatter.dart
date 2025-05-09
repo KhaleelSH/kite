@@ -3,7 +3,7 @@ import 'dart:io';
 import 'package:flutter/services.dart';
 
 class ErrorFormatter {
-  ErrorFormatter._();
+  const ErrorFormatter._();
 
   static String format(Exception exception) {
     if (exception is SocketException) {
