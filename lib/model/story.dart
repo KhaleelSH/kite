@@ -109,7 +109,3 @@ class Story {
 
   factory Story.fromJson(Map<String, dynamic> json) => _$StoryFromJson(json);
 }
-
-List<String> stringListFromJson(List<dynamic> json) {
-  return json.map((e) => e.toString()).toList();
-}
