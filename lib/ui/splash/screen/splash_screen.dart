@@ -48,7 +48,7 @@ class SplashScreen extends ConsumerWidget {
                   ),
                   Text(
                     'News. Elevated.',
-                    style: Theme.of(context).textTheme.headlineSmall?.copyWith(fontWeight: FontWeight.w500),
+                    style: Theme.of(context).textTheme.titleMedium?.copyWith(fontWeight: FontWeight.w500),
                   ),
                 ],
               ),
