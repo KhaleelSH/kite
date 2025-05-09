@@ -15,9 +15,6 @@ class _DarkAppTheme extends AppTheme {
       onSurface: const Color(0xFFE2E8F0),
     );
 
-    return ThemeData(
-      brightness: Brightness.dark,
-      colorScheme: colorScheme,
-    );
+    return ThemeData(brightness: Brightness.dark, colorScheme: colorScheme);
   }
 }

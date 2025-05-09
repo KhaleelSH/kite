@@ -15,9 +15,6 @@ class _LightAppTheme extends AppTheme {
       onSurface: const Color(0xFF1E2939),
     );
 
-    return ThemeData(
-      brightness: Brightness.light,
-      colorScheme: colorScheme,
-    );
+    return ThemeData(brightness: Brightness.light, colorScheme: colorScheme);
   }
 }

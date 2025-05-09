@@ -37,11 +37,7 @@ class _AnimatedKiteLogoState extends State<AnimatedKiteLogo> with SingleTickerPr
           offset: Offset(0, -_animation.value),
           child: Hero(
             tag: 'kite-logo',
-            child: SvgPicture.asset(
-              'assets/svg/kite_${Theme.of(context).brightness.name}.svg',
-              width: 80,
-              height: 80,
-            ),
+            child: SvgPicture.asset('assets/svg/kite_${Theme.of(context).brightness.name}.svg', width: 80, height: 80),
           ),
         );
       },
