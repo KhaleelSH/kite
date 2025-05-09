@@ -29,7 +29,7 @@ class NewsDataProvider {
   Future<List<Story>> getNewsStories(Category category) async {
     final response = await _httpClient.get(category.file);
     if (response.statusCode == 200) {
-      final List<dynamic> data = jsonDecode(utf8.decode(response.bodyBytes))['clusters'];
+      final List<dynamic> data = jsonDecode(response.body)['clusters'];
       return data.map((story) => Story.fromJson(story)).toList();
     } else {
       throw HttpException('Failed to load news stories');
