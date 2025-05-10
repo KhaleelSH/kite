@@ -1,11 +1,12 @@
 # Kite
 
-Kite News App
+Kite News App - A Flutter application for browsing and reading news articles.
 
 ## Flutter Version Manager
 
-This project is built using Flutter. To manage different versions of Flutter, we use the `fvm` (Flutter Version
-Management) tool. This allows us to easily switch between different versions of Flutter for different projects.
+This project is built using Flutter. To manage different versions of Flutter, we use the `fvm` ([Flutter Version
+Management](https://fvm.app/documentation/getting-started)) tool. This allows us to easily switch between different
+versions of Flutter for different projects.
 
 ## Melos
 
@@ -31,3 +32,55 @@ configured directly in the `pubspec.yaml` file.
   melos generate
   ```
 
+## Project Structure
+
+The project follows a feature-based organization with clear separation of concerns:
+
+```
+lib/
+├── core/           # Core functionality and utilities
+│   ├── app/        # App initialization and configuration
+│   ├── data/       # Core data handling
+│   └── theme/      # App theming
+├── data/           # Data layer components
+├── model/          # Data models
+├── providers/      # State management providers
+├── ui/             # UI components organized by feature
+│   ├── feed/       # News feed feature
+│   ├── splash/     # Splash screen
+│   ├── story/      # Story detail feature
+│   └── today_in_history/ # Historical events feature
+└── main.dart       # Application entry point
+```
+
+## Architecture and Development Choices
+
+### State Management
+
+- Uses **Flutter Riverpod** for state management
+- Implements FutureProvider for async data fetching
+- Properly handles loading, error, and success states
+
+### UI Architecture
+
+- Feature-based organization with screens and widgets separated
+- Clean separation between UI and business logic
+- Responsive design with support for light and dark themes
+
+### Data Handling
+
+- JSON serialization using **json_serializable** for code generation
+- Immutable data models with required parameters
+- HTTP client for API communication
+
+### Navigation
+
+- Simple navigation using MaterialPageRoute
+
+### Other Libraries and Tools
+
+- **flutter_svg** for vector graphics
+- **flutter_widget_from_html_core** for HTML rendering
+- **http** package for network requests
+- **timeago** for relative time formatting
+- **shimmer** for loading effects
