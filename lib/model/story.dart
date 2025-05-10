@@ -67,8 +67,6 @@ class Story {
   final String location;
   final List<Perspective> perspectives;
   final String emoji;
-
-  // TODO: Check the correctness of the types below this line
   final String geopoliticalContext;
   final String historicalBackground;
   @EmptyStringToListJsonConverter()

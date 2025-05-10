@@ -11,10 +11,20 @@ class _DarkAppTheme extends AppTheme {
       brightness: Brightness.dark,
       seedColor: const Color(0xFFFFB319),
       primaryFixed: const Color(0xFFFFB319),
+      secondary: const Color(0xFF6285F0),
+      onSecondary: Colors.white,
+      secondaryContainer: const Color(0xFF364153),
+      tertiaryContainer: const Color(0xFF2B411C),
       surface: const Color(0xFF1A202C),
       onSurface: const Color(0xFFE2E8F0),
+      surfaceBright: const Color(0xFF364153),
     );
 
-    return ThemeData(brightness: Brightness.dark, colorScheme: colorScheme);
+    final textTheme = TextTheme(
+      titleLarge: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
+      titleSmall: TextStyle(fontSize: 15, fontWeight: FontWeight.w600),
+    );
+
+    return ThemeData(brightness: Brightness.dark, colorScheme: colorScheme, textTheme: textTheme);
   }
 }
