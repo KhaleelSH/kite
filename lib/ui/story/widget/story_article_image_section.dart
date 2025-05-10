@@ -18,6 +18,7 @@ class StoryArticleImageSection extends StatelessWidget {
             width: double.maxFinite,
             height: 250,
             fit: BoxFit.cover,
+            semanticLabel: article.imageCaption,
             errorBuilder: (context, error, stackTrace) {
               return Container(
                 height: 250,
