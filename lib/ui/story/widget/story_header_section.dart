@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:kite/model/article.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -14,19 +15,22 @@ class StoryHeaderSection extends StatelessWidget {
       child: Stack(
         fit: StackFit.expand,
         children: [
-          Hero(
-            tag: mainArticle.image,
-            child: Image.network(
-              mainArticle.image,
-              fit: BoxFit.cover,
-              semanticLabel: mainArticle.imageCaption,
-              errorBuilder: (context, error, stackTrace) {
-                return Container(
-                  height: 250,
-                  color: Theme.of(context).colorScheme.surfaceBright,
-                  child: const Center(child: Icon(Icons.image_not_supported)),
-                );
-              },
+          Semantics(
+            label: mainArticle.imageCaption,
+            child: Hero(
+              tag: mainArticle.image,
+              child: CachedNetworkImage(
+                imageUrl: mainArticle.image,
+                fit: BoxFit.cover,
+                errorWidget: (context, error, stackTrace) {
+                  return Container(
+                    height: 250,
+                    color: Theme.of(context).colorScheme.surfaceBright,
+                    child: const Center(child: Icon(Icons.image_not_supported)),
+                  );
+                },
+                fadeInDuration: Duration.zero,
+              ),
             ),
           ),
           Positioned(
@@ -39,7 +43,11 @@ class StoryHeaderSection extends StatelessWidget {
                 gradient: LinearGradient(
                   begin: Alignment.topCenter,
                   end: Alignment.bottomCenter,
-                  colors: [Theme.of(context).colorScheme.surfaceBright.withAlpha(200), Theme.of(context).colorScheme.surfaceBright.withAlpha(120), Colors.transparent],
+                  colors: [
+                    Theme.of(context).colorScheme.surfaceBright.withAlpha(200),
+                    Theme.of(context).colorScheme.surfaceBright.withAlpha(120),
+                    Colors.transparent,
+                  ],
                 ),
               ),
             ),

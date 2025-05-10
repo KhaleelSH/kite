@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
 import 'package:kite/model/story.dart';
@@ -65,23 +66,23 @@ class StoryCard extends StatelessWidget {
                       width: 96,
                       child: Hero(
                         tag: article.image,
-                        child: Image.network(
-                          article.image,
+                        child: CachedNetworkImage(
+                          imageUrl: article.image,
                           fit: BoxFit.cover,
-                          loadingBuilder: (context, child, loadingProgress) {
-                            if (loadingProgress == null) return child;
+                          placeholder: (context, _) {
                             return Shimmer.fromColors(
                               baseColor: Theme.of(context).colorScheme.outlineVariant,
                               highlightColor: Theme.of(context).colorScheme.outlineVariant.withAlpha(128),
                               child: Container(color: Theme.of(context).colorScheme.outlineVariant),
                             );
                           },
-                          errorBuilder: (context, error, stackTrace) {
+                          errorWidget: (context, error, stackTrace) {
                             return Container(
                               color: Theme.of(context).colorScheme.outlineVariant,
                               child: const Center(child: Icon(Icons.image_not_supported)),
                             );
                           },
+                          fadeInDuration: Duration.zero,
                         ),
                       ),
                     ),
