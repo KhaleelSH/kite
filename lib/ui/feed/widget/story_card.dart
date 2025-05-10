@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:kite/model/story.dart';
 import 'package:kite/ui/story/screen/story_screen.dart';
 import 'package:shimmer/shimmer.dart';
+import 'package:timeago/timeago.dart' as timeago;
 
 class StoryCard extends StatelessWidget {
   const StoryCard({super.key, required this.story});
@@ -36,6 +37,15 @@ class StoryCard extends StatelessWidget {
                           ),
                         ),
                       ),
+                    if (article != null) ...[
+                      Text(
+                        timeago.format(article.date),
+                        style: Theme.of(
+                          context,
+                        ).textTheme.bodySmall?.copyWith(color: Theme.of(context).colorScheme.onSurfaceVariant),
+                      ),
+                      SizedBox(height: 4),
+                    ],
                     Text(
                       story.title,
                       style: Theme.of(context).textTheme.titleMedium?.copyWith(fontWeight: FontWeight.bold),
