@@ -38,10 +38,7 @@ class _LightAppTheme extends AppTheme {
         tabAlignment: TabAlignment.start,
         labelStyle: textTheme.bodyLarge,
       ),
-      dividerTheme: DividerThemeData(
-        indent: 16,
-        endIndent: 16,
-      )
+      dividerTheme: DividerThemeData(indent: 16, endIndent: 16),
     );
   }
 }
