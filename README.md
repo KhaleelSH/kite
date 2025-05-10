@@ -84,3 +84,4 @@ lib/
 - **http** package for network requests
 - **timeago** for relative time formatting
 - **shimmer** for loading effects
+- **cached_network_image** for image caching
