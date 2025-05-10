@@ -8,7 +8,13 @@ class StoryEventsTimelineSection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
+      crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
+        Text(
+          'Timeline of events',
+          style: Theme.of(context).textTheme.titleLarge?.copyWith(fontWeight: FontWeight.bold),
+        ),
+        const SizedBox(height: 16),
         for (final (index, event) in timeline.indexed)
           IntrinsicHeight(
             child: Row(
