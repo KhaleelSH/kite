@@ -18,6 +18,7 @@ class _DarkAppTheme extends AppTheme {
       surface: const Color(0xFF1A202C),
       onSurface: const Color(0xFFE2E8F0),
       surfaceBright: const Color(0xFF364153),
+      outlineVariant: const Color(0xFF364153),
     );
 
     final textTheme = TextTheme(
@@ -33,7 +34,11 @@ class _DarkAppTheme extends AppTheme {
         labelColor: colorScheme.onSurface,
         unselectedLabelColor: colorScheme.onSurface,
         indicatorColor: colorScheme.primaryFixed,
+        dividerColor: Colors.transparent,
+        tabAlignment: TabAlignment.start,
+        labelStyle: textTheme.bodyLarge,
       ),
+      dividerTheme: DividerThemeData(indent: 16, endIndent: 16),
     );
   }
 }

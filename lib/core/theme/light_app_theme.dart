@@ -18,6 +18,7 @@ class _LightAppTheme extends AppTheme {
       surface: Colors.white,
       onSurface: const Color(0xFF1E2939),
       surfaceBright: const Color(0xFFF3F4F6),
+      outlineVariant: const Color(0xFFE5E7EB),
     );
 
     final textTheme = TextTheme(
@@ -33,7 +34,14 @@ class _LightAppTheme extends AppTheme {
         labelColor: colorScheme.onSurface,
         unselectedLabelColor: colorScheme.onSurface,
         indicatorColor: colorScheme.primaryFixed,
+        dividerColor: Colors.transparent,
+        tabAlignment: TabAlignment.start,
+        labelStyle: textTheme.bodyLarge,
       ),
+      dividerTheme: DividerThemeData(
+        indent: 16,
+        endIndent: 16,
+      )
     );
   }
 }

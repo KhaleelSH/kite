@@ -23,6 +23,10 @@ class StoryScreen extends ConsumerWidget {
 
   final Story story;
 
+  static Route<void> route({required Story story}) {
+    return MaterialPageRoute(builder: (_) => StoryScreen(story: story));
+  }
+
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     // Get the first article with an image if available
