@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -80,10 +82,7 @@ class StoryScreen extends ConsumerWidget {
                         if (story.location.isNotEmpty) ...[
                           Flexible(
                             child: TextButton.icon(
-                              onPressed: () async {
-                                final Uri url = Uri.parse('geo:0,0?q=${Uri.encodeComponent(story.location)}');
-                                await launchUrl(url, mode: LaunchMode.externalApplication);
-                              },
+                              onPressed: () => _openMap(story.location),
                               style: TextButton.styleFrom(visualDensity: VisualDensity.compact),
                               icon: Icon(Icons.location_on_rounded),
                               label: Text(story.location, overflow: TextOverflow.ellipsis),
@@ -268,5 +267,25 @@ class StoryScreen extends ConsumerWidget {
         ),
       ),
     );
+  }
+
+  Future<void> _openMap(String address) async {
+    final encoded = Uri.encodeComponent(address);
+
+    Uri? uri;
+    if (Platform.isAndroid) {
+      uri = Uri.parse('geo:0,0?q=$encoded');
+    } else if (Platform.isIOS) {
+      final googleUri = Uri.parse('comgooglemaps://?q=$encoded');
+      if (await canLaunchUrl(googleUri)) {
+        uri = googleUri;
+      } else {
+        uri = Uri.parse('https://maps.apple.com/?q=$encoded');
+      }
+    }
+
+    if (uri != null && await canLaunchUrl(uri)) {
+      await launchUrl(uri, mode: LaunchMode.externalApplication);
+    }
   }
 }
