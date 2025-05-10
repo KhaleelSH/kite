@@ -74,10 +74,7 @@ class StoryScreen extends ConsumerWidget {
                               context,
                             ).textTheme.titleSmall?.copyWith(color: Theme.of(context).colorScheme.primary),
                           ),
-                        ],
-                        if (story.category.isNotEmpty && story.location.isNotEmpty) ...[
                           SizedBox(width: 16),
-                          SizedBox(height: 16, child: VerticalDivider()),
                         ],
                         if (story.location.isNotEmpty) ...[
                           Flexible(
