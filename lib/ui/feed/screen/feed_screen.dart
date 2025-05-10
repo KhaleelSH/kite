@@ -38,35 +38,50 @@ class _FeedScreenState extends ConsumerState<FeedScreen> with SingleTickerProvid
     final categories = ref.watch(categoriesProvider).requireValue;
 
     return Scaffold(
-      appBar: AppBar(
-        title: Row(
-          children: [
-            Hero(
-              tag: 'kite-logo',
-              child: SvgPicture.asset('assets/svg/kite_${Theme.of(context).brightness.name}.svg', width: 32),
-            ),
-            const SizedBox(width: 8),
-            Text('Kite', style: Theme.of(context).textTheme.titleLarge?.copyWith(fontWeight: FontWeight.bold)),
-          ],
-        ),
-        bottom: TabBar(
-          isScrollable: true,
-          controller: _tabController,
-          tabs: categories.map((category) => Tab(text: category.name)).toList(),
-        ),
-      ),
-      body: Column(
-        children: [
-          Expanded(
-            child: TabBarView(
-              controller: _tabController,
-              children: [
-                for (final category in categories)
-                  if (category.name == 'OnThisDay') const TodayInHistoryScreen() else _buildNewsFeed(category),
-              ],
-            ),
+      body: SafeArea(
+        bottom: false,
+        child: NestedScrollView(
+          headerSliverBuilder: (BuildContext context, bool innerBoxIsScrolled) {
+            return [
+              SliverToBoxAdapter(
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+                  child: Row(
+                    children: [
+                      Hero(
+                        tag: 'kite-logo',
+                        child: SvgPicture.asset('assets/svg/kite_${Theme.of(context).brightness.name}.svg', width: 32),
+                      ),
+                      const SizedBox(width: 8),
+                      Text(
+                        'Kite',
+                        style: Theme.of(context).textTheme.titleLarge?.copyWith(fontWeight: FontWeight.bold),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+              SliverAppBar(
+                pinned: true,
+                scrolledUnderElevation: 0,
+                backgroundColor: Theme.of(context).colorScheme.surface,
+                toolbarHeight: 0,
+                bottom: TabBar(
+                  isScrollable: true,
+                  controller: _tabController,
+                  tabs: categories.map((category) => Tab(text: category.name)).toList(),
+                ),
+              ),
+            ];
+          },
+          body: TabBarView(
+            controller: _tabController,
+            children: [
+              for (final category in categories)
+                if (category.name == 'OnThisDay') const TodayInHistoryScreen() else _buildNewsFeed(category),
+            ],
           ),
-        ],
+        ),
       ),
     );
   }
