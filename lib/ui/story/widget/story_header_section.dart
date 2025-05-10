@@ -33,7 +33,7 @@ class StoryHeaderSection extends StatelessWidget {
             top: 0,
             left: 0,
             right: 0,
-            height: 120,
+            height: 120 + MediaQuery.of(context).padding.top,
             child: Container(
               decoration: BoxDecoration(
                 gradient: LinearGradient(
