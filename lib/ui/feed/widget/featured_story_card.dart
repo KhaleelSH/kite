@@ -2,6 +2,7 @@ import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
 import 'package:kite/model/story.dart';
 import 'package:kite/ui/story/screen/story_screen.dart';
+import 'package:shimmer/shimmer.dart';
 
 class FeaturedStoryCard extends StatelessWidget {
   const FeaturedStoryCard({super.key, required this.story});
@@ -31,9 +32,17 @@ class FeaturedStoryCard extends StatelessWidget {
                         child: Image.network(
                           article.image,
                           fit: BoxFit.cover,
+                          loadingBuilder: (context, child, loadingProgress) {
+                            if (loadingProgress == null) return child;
+                            return Shimmer.fromColors(
+                              baseColor: Theme.of(context).colorScheme.outlineVariant,
+                              highlightColor: Theme.of(context).colorScheme.outlineVariant.withAlpha(128),
+                              child: Container(color: Theme.of(context).colorScheme.outlineVariant),
+                            );
+                          },
                           errorBuilder: (context, error, stackTrace) {
                             return Container(
-                              color: Colors.grey[300],
+                              color: Theme.of(context).colorScheme.outlineVariant,
                               child: const Center(child: Icon(Icons.image_not_supported)),
                             );
                           },

@@ -2,6 +2,7 @@ import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
 import 'package:kite/model/story.dart';
 import 'package:kite/ui/story/screen/story_screen.dart';
+import 'package:shimmer/shimmer.dart';
 
 class StoryCard extends StatelessWidget {
   const StoryCard({super.key, required this.story});
@@ -41,22 +42,6 @@ class StoryCard extends StatelessWidget {
                       maxLines: 3,
                       overflow: TextOverflow.ellipsis,
                     ),
-                    // const SizedBox(height: 8),
-                    // Row(
-                    //   children: [
-                    //     if (story.domains.isNotEmpty) Expanded(child: _buildSourceInfo(story.domains.first)),
-                    //     if (article != null && article.date.isNotEmpty)
-                    //       Text(article.date, style: TextStyle(fontSize: 12, color: Colors.grey[600])),
-                    //   ],
-                    // ),
-                    // const Spacer(),
-                    // if (story.talkingPoints.isNotEmpty)
-                    //   Text(
-                    //     story.talkingPoints.first,
-                    //     style: TextStyle(fontSize: 14, color: Colors.grey[700]),
-                    //     maxLines: 2,
-                    //     overflow: TextOverflow.ellipsis,
-                    //   ),
                   ],
                 ),
               ),
@@ -73,9 +58,17 @@ class StoryCard extends StatelessWidget {
                         child: Image.network(
                           article.image,
                           fit: BoxFit.cover,
+                          loadingBuilder: (context, child, loadingProgress) {
+                            if (loadingProgress == null) return child;
+                            return Shimmer.fromColors(
+                              baseColor: Theme.of(context).colorScheme.outlineVariant,
+                              highlightColor: Theme.of(context).colorScheme.outlineVariant.withAlpha(128),
+                              child: Container(color: Theme.of(context).colorScheme.outlineVariant),
+                            );
+                          },
                           errorBuilder: (context, error, stackTrace) {
                             return Container(
-                              color: Colors.grey[300],
+                              color: Theme.of(context).colorScheme.outlineVariant,
                               child: const Center(child: Icon(Icons.image_not_supported)),
                             );
                           },
