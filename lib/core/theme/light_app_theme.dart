@@ -25,6 +25,15 @@ class _LightAppTheme extends AppTheme {
       titleSmall: TextStyle(fontSize: 15, fontWeight: FontWeight.w600),
     );
 
-    return ThemeData(brightness: Brightness.light, colorScheme: colorScheme, textTheme: textTheme);
+    return ThemeData(
+      brightness: Brightness.light,
+      colorScheme: colorScheme,
+      textTheme: textTheme,
+      tabBarTheme: TabBarThemeData(
+        labelColor: colorScheme.onSurface,
+        unselectedLabelColor: colorScheme.onSurface,
+        indicatorColor: colorScheme.primaryFixed,
+      ),
+    );
   }
 }
