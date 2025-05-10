@@ -39,7 +39,7 @@ class StoryHeaderSection extends StatelessWidget {
                 gradient: LinearGradient(
                   begin: Alignment.topCenter,
                   end: Alignment.bottomCenter,
-                  colors: [Colors.black.withAlpha(200), Colors.black.withAlpha(120), Colors.transparent],
+                  colors: [Theme.of(context).colorScheme.surfaceBright.withAlpha(200), Theme.of(context).colorScheme.surfaceBright.withAlpha(120), Colors.transparent],
                 ),
               ),
             ),
