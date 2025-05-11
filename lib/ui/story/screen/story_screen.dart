@@ -281,7 +281,7 @@ class StoryScreen extends ConsumerWidget {
       }
     }
 
-    if (uri != null && await canLaunchUrl(uri)) {
+    if (uri != null) {
       await launchUrl(uri, mode: LaunchMode.externalApplication);
     }
   }
