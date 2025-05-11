@@ -30,7 +30,7 @@ class StoryQuoteSection extends StatelessWidget {
           borderRadius: BorderRadius.circular(8),
         ),
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             Text('❝', style: TextStyle(fontSize: 28)),
             Text(quote, style: Theme.of(context).textTheme.bodyLarge?.copyWith(fontStyle: FontStyle.italic)),

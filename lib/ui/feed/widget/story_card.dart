@@ -58,12 +58,12 @@ class StoryCard extends StatelessWidget {
               ),
               const SizedBox(width: 16),
               if (article != null && article.image.isNotEmpty)
-                ClipRRect(
-                  borderRadius: const BorderRadius.all(Radius.circular(12)),
-                  child: AspectRatio(
-                    aspectRatio: 1,
+                Center(
+                  child: ClipRRect(
+                    borderRadius: const BorderRadius.all(Radius.circular(12)),
                     child: SizedBox(
                       width: 96,
+                      height: 96,
                       child: Hero(
                         tag: article.image,
                         child: CachedNetworkImage(
