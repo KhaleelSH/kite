@@ -8,6 +8,20 @@ This project is built using Flutter. To manage different versions of Flutter, we
 Management](https://fvm.app/documentation/getting-started)) tool. This allows us to easily switch between different
 versions of Flutter for different projects.
 
+## Running the Project
+1. **Change directory**:
+   ```bash
+   cd kite
+   ```
+2. **Install Dependencies**:
+   ```bash
+   fvm flutter pub get
+   ```
+3. **Run the App**:
+   ```bash
+   fvm flutter run
+   ```
+
 ## Melos
 
 This project uses [Melos](https://melos.invertase.dev/) as a task runner to simplify common development tasks. Melos is
