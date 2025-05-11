@@ -39,7 +39,7 @@ class NewsDataProvider {
   Future<List<Event>> getOnThisDayEvents() async {
     final response = await _httpClient.get('onthisday.json');
     if (response.statusCode == 200) {
-      final List<dynamic> data = jsonDecode(utf8.decode(response.bodyBytes))['events'];
+      final List<dynamic> data = jsonDecode(response.body)['events'];
       return data.map((story) => Event.fromJson(story)).toList();
     } else {
       throw HttpException('Failed to load on this day events');
