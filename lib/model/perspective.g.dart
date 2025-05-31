@@ -8,10 +8,9 @@ part of 'perspective.dart';
 
 Perspective _$PerspectiveFromJson(Map<String, dynamic> json) => Perspective(
   text: json['text'] as String,
-  sources:
-      (json['sources'] as List<dynamic>)
-          .map((e) => PerspectiveSource.fromJson(e as Map<String, dynamic>))
-          .toList(),
+  sources: (json['sources'] as List<dynamic>)
+      .map((e) => PerspectiveSource.fromJson(e as Map<String, dynamic>))
+      .toList(),
 );
 
 PerspectiveSource _$PerspectiveSourceFromJson(Map<String, dynamic> json) =>

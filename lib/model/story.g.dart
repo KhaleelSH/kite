@@ -14,19 +14,17 @@ Story _$StoryFromJson(Map<String, dynamic> json) => Story(
   title: json['title'] as String,
   shortSummary: json['short_summary'] as String,
   didYouKnow: json['did_you_know'] as String,
-  talkingPoints:
-      (json['talking_points'] as List<dynamic>)
-          .map((e) => e as String)
-          .toList(),
+  talkingPoints: (json['talking_points'] as List<dynamic>)
+      .map((e) => e as String)
+      .toList(),
   quote: json['quote'] as String,
   quoteAuthor: json['quote_author'] as String,
   quoteSourceUrl: json['quote_source_url'] as String,
   quoteSourceDomain: json['quote_source_domain'] as String,
   location: json['location'] as String,
-  perspectives:
-      (json['perspectives'] as List<dynamic>)
-          .map((e) => Perspective.fromJson(e as Map<String, dynamic>))
-          .toList(),
+  perspectives: (json['perspectives'] as List<dynamic>)
+      .map((e) => Perspective.fromJson(e as Map<String, dynamic>))
+      .toList(),
   emoji: json['emoji'] as String,
   geopoliticalContext: json['geopolitical_context'] as String,
   historicalBackground: json['historical_background'] as String,
@@ -72,12 +70,10 @@ Story _$StoryFromJson(Map<String, dynamic> json) => Story(
     json['industry_impact'],
   ),
   technicalSpecifications: json['technical_specifications'] as String,
-  articles:
-      (json['articles'] as List<dynamic>)
-          .map((e) => Article.fromJson(e as Map<String, dynamic>))
-          .toList(),
-  domains:
-      (json['domains'] as List<dynamic>)
-          .map((e) => Domain.fromJson(e as Map<String, dynamic>))
-          .toList(),
+  articles: (json['articles'] as List<dynamic>)
+      .map((e) => Article.fromJson(e as Map<String, dynamic>))
+      .toList(),
+  domains: (json['domains'] as List<dynamic>)
+      .map((e) => Domain.fromJson(e as Map<String, dynamic>))
+      .toList(),
 );
