@@ -1,4 +1,4 @@
-package dev.khal.kite
+package dev.khal.news
 
 import io.flutter.embedding.android.FlutterActivity
 
