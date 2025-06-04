@@ -5,6 +5,7 @@ import 'package:kite/model/category.dart';
 import 'package:kite/providers/news_provider.dart';
 import 'package:kite/ui/feed/widget/featured_story_card.dart';
 import 'package:kite/ui/feed/widget/story_card.dart';
+import 'package:kite/ui/settings/ui/screen/settings_screen.dart';
 import 'package:kite/ui/today_in_history/screen/today_in_history_screen.dart';
 
 class FeedScreen extends ConsumerStatefulWidget {
@@ -56,6 +57,12 @@ class _FeedScreenState extends ConsumerState<FeedScreen> with SingleTickerProvid
                       Text(
                         'Kite',
                         style: Theme.of(context).textTheme.titleLarge?.copyWith(fontWeight: FontWeight.bold),
+                      ),
+                      const Spacer(),
+                      IconButton(
+                        icon: const Icon(Icons.settings),
+                        onPressed: () => Navigator.of(context).push(SettingsScreen.route()),
+                        tooltip: 'Settings',
                       ),
                     ],
                   ),
