@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:kite/ui/settings/ui/screen/categories_settings_screen.dart';
+import 'package:kite/ui/settings/screen/categories_settings_screen.dart';
 
 class SettingsScreen extends StatelessWidget {
   const SettingsScreen({super.key});
