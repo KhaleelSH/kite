@@ -27,6 +27,12 @@ class _CategoriesSettingsScreenState extends ConsumerState<CategoriesSettingsScr
       .toList();
 
   void _toggleCategory(String categoryName, bool value) {
+    if (_enabledCategories.length == 1 && value == false) {
+      ScaffoldMessenger.of(
+        context,
+      ).showSnackBar(SnackBar(content: Text('You cannot disable the last enabled category.')));
+      return;
+    }
     setState(() {
       Category? targetCategory = _enabledCategories.firstWhere(
         (c) => c.name == categoryName,
@@ -45,6 +51,12 @@ class _CategoriesSettingsScreenState extends ConsumerState<CategoriesSettingsScr
   }
 
   void _onReorder(int oldIndex, int newIndex) {
+    if (_enabledCategories.length == 1 && newIndex > oldIndex) {
+      ScaffoldMessenger.of(
+        context,
+      ).showSnackBar(SnackBar(content: Text('You cannot disable the last enabled category.')));
+      return;
+    }
     setState(() {
       final items = [
         ..._enabledCategories,
