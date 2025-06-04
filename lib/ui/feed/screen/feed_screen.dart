@@ -8,7 +8,7 @@ import 'package:kite/providers/news_provider.dart';
 import 'package:kite/ui/feed/widget/featured_story_card.dart';
 import 'package:kite/ui/feed/widget/story_card.dart';
 import 'package:kite/ui/settings/screen/settings_screen.dart';
-import 'package:kite/ui/story/screen/story_screen.dart';
+import 'package:kite/ui/story/screen/stories_page_view_screen.dart';
 import 'package:kite/ui/today_in_history/screen/today_in_history_screen.dart';
 
 class FeedScreen extends ConsumerWidget {
@@ -94,7 +94,7 @@ class FeedScreen extends ConsumerWidget {
         final story = stories[index];
         return InkWell(
           onTap: () {
-            Navigator.of(context).push(StoryScreen.route(story: story));
+            Navigator.of(context).push(StoriesPageViewScreen.route(stories: stories, initialIndex: index));
             HapticFeedback.lightImpact();
           },
           child: index == 0 ? FeaturedStoryCard(story: story) : StoryCard(story: story),
