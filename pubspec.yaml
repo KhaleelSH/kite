@@ -26,6 +26,7 @@ dependencies:
   flutter_riverpod: ^2.6.1
 
   # Storage
+  shared_preferences: ^2.5.3
   cached_network_image: ^3.4.1
 
   # JSON Serialization
