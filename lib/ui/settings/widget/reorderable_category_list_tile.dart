@@ -33,7 +33,7 @@ class ReorderableCategoryListTile extends StatelessWidget {
             index: index,
             child: Padding(
               padding: const EdgeInsets.all(8.0),
-              child: Icon(Icons.drag_handle, color: Theme.of(context).colorScheme.onSurfaceVariant),
+              child: Icon(Icons.drag_handle, color: Theme.of(context).colorScheme.onSurface),
             ),
           ),
         ],

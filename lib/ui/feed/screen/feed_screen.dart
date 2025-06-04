@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:kite/model/category.dart';
@@ -7,6 +8,7 @@ import 'package:kite/providers/news_provider.dart';
 import 'package:kite/ui/feed/widget/featured_story_card.dart';
 import 'package:kite/ui/feed/widget/story_card.dart';
 import 'package:kite/ui/settings/screen/settings_screen.dart';
+import 'package:kite/ui/story/screen/story_screen.dart';
 import 'package:kite/ui/today_in_history/screen/today_in_history_screen.dart';
 
 class FeedScreen extends ConsumerWidget {
@@ -90,11 +92,13 @@ class FeedScreen extends ConsumerWidget {
       itemCount: stories.length,
       itemBuilder: (context, index) {
         final story = stories[index];
-        if (index == 0) {
-          return FeaturedStoryCard(story: story);
-        } else {
-          return StoryCard(story: story);
-        }
+        return InkWell(
+          onTap: () {
+            Navigator.of(context).push(StoryScreen.route(story: story));
+            HapticFeedback.lightImpact();
+          },
+          child: index == 0 ? FeaturedStoryCard(story: story) : StoryCard(story: story),
+        );
       },
     );
   }
