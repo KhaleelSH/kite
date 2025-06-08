@@ -10,7 +10,11 @@ class StoryTextSection extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
-      children: [Text(title, style: Theme.of(context).textTheme.titleLarge), const SizedBox(height: 8), Text(content)],
+      children: [
+        Text(title, style: Theme.of(context).textTheme.titleLarge),
+        const SizedBox(height: 8),
+        Text(content),
+      ],
     );
   }
 }

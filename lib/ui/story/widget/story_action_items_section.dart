@@ -23,7 +23,11 @@ class StoryActionItemsSection extends StatelessWidget {
               .map(
                 (actionItem) => Row(
                   crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [Text('•'), const SizedBox(width: 8), Expanded(child: Text(actionItem))],
+                  children: [
+                    Text('•'),
+                    const SizedBox(width: 8),
+                    Expanded(child: Text(actionItem)),
+                  ],
                 ),
               )
               .joinWith(SizedBox(height: 8)),

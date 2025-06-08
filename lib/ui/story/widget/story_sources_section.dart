@@ -27,46 +27,45 @@ class StorySourcesSection extends StatelessWidget {
           scrollDirection: Axis.horizontal,
           child: Row(
             spacing: 8,
-            children:
-                domains.map((domain) {
-                  final articleCount = domainArticleCounts[domain.name] ?? 0;
+            children: domains.map((domain) {
+              final articleCount = domainArticleCounts[domain.name] ?? 0;
 
-                  return Container(
-                    padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
-                    decoration: BoxDecoration(
-                      color: Theme.of(context).colorScheme.surfaceBright,
-                      borderRadius: BorderRadius.circular(8),
-                    ),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
+              return Container(
+                padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+                decoration: BoxDecoration(
+                  color: Theme.of(context).colorScheme.surfaceBright,
+                  borderRadius: BorderRadius.circular(8),
+                ),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Row(
                       children: [
-                        Row(
-                          children: [
-                            if (domain.favicon.isNotEmpty) ...[
-                              ClipRRect(
-                                borderRadius: BorderRadius.circular(8),
-                                child: Image.network(
-                                  domain.favicon,
-                                  width: 16,
-                                  height: 16,
-                                  errorBuilder: (context, error, stackTrace) => const Icon(Icons.public, size: 16),
-                                ),
-                              ),
-                              const SizedBox(width: 4),
-                            ],
-
-                            Text(domain.name),
-                          ],
-                        ),
-                        if (articleCount > 0)
-                          Text(
-                            '$articleCount ${articleCount > 1 ? 'articles' : 'article'}',
-                            style: Theme.of(context).textTheme.labelSmall,
+                        if (domain.favicon.isNotEmpty) ...[
+                          ClipRRect(
+                            borderRadius: BorderRadius.circular(8),
+                            child: Image.network(
+                              domain.favicon,
+                              width: 16,
+                              height: 16,
+                              errorBuilder: (context, error, stackTrace) => const Icon(Icons.public, size: 16),
+                            ),
                           ),
+                          const SizedBox(width: 4),
+                        ],
+
+                        Text(domain.name),
                       ],
                     ),
-                  );
-                }).toList(),
+                    if (articleCount > 0)
+                      Text(
+                        '$articleCount ${articleCount > 1 ? 'articles' : 'article'}',
+                        style: Theme.of(context).textTheme.labelSmall,
+                      ),
+                  ],
+                ),
+              );
+            }).toList(),
           ),
         ),
       ],
