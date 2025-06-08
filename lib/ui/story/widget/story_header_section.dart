@@ -17,20 +17,17 @@ class StoryHeaderSection extends StatelessWidget {
         children: [
           Semantics(
             label: mainArticle.imageCaption,
-            child: Hero(
-              tag: mainArticle.image,
-              child: CachedNetworkImage(
-                imageUrl: mainArticle.image,
-                fit: BoxFit.cover,
-                errorWidget: (context, error, stackTrace) {
-                  return Container(
-                    height: 250,
-                    color: Theme.of(context).colorScheme.surfaceBright,
-                    child: const Center(child: Icon(Icons.image_not_supported)),
-                  );
-                },
-                fadeInDuration: Duration.zero,
-              ),
+            child: CachedNetworkImage(
+              imageUrl: mainArticle.image,
+              fit: BoxFit.cover,
+              errorWidget: (context, error, stackTrace) {
+                return Container(
+                  height: 250,
+                  color: Theme.of(context).colorScheme.surfaceBright,
+                  child: const Center(child: Icon(Icons.image_not_supported)),
+                );
+              },
+              fadeInDuration: Duration.zero,
             ),
           ),
           Positioned(

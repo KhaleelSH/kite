@@ -26,26 +26,23 @@ class FeaturedStoryCard extends StatelessWidget {
                   borderRadius: BorderRadius.circular(12),
                   child: AspectRatio(
                     aspectRatio: 16 / 9,
-                    child: Hero(
-                      tag: article.image,
-                      child: CachedNetworkImage(
-                        imageUrl: article.image,
-                        fit: BoxFit.cover,
-                        placeholder: (context, _) {
-                          return Shimmer.fromColors(
-                            baseColor: Theme.of(context).colorScheme.outlineVariant,
-                            highlightColor: Theme.of(context).colorScheme.outlineVariant.withAlpha(128),
-                            child: Container(color: Theme.of(context).colorScheme.outlineVariant),
-                          );
-                        },
-                        errorWidget: (context, error, stackTrace) {
-                          return Container(
-                            color: Theme.of(context).colorScheme.outlineVariant,
-                            child: const Center(child: Icon(Icons.image_not_supported)),
-                          );
-                        },
-                        fadeInDuration: Duration.zero,
-                      ),
+                    child: CachedNetworkImage(
+                      imageUrl: article.image,
+                      fit: BoxFit.cover,
+                      placeholder: (context, _) {
+                        return Shimmer.fromColors(
+                          baseColor: Theme.of(context).colorScheme.outlineVariant,
+                          highlightColor: Theme.of(context).colorScheme.outlineVariant.withAlpha(128),
+                          child: Container(color: Theme.of(context).colorScheme.outlineVariant),
+                        );
+                      },
+                      errorWidget: (context, error, stackTrace) {
+                        return Container(
+                          color: Theme.of(context).colorScheme.outlineVariant,
+                          child: const Center(child: Icon(Icons.image_not_supported)),
+                        );
+                      },
+                      fadeInDuration: Duration.zero,
                     ),
                   ),
                 ),
