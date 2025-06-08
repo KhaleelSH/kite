@@ -21,7 +21,9 @@ class SharedPreferencesWithCacheBuilder {
     if (_sharedPreferencesWithCache != null) return;
 
     _sharedPreferencesWithCache = await SharedPreferencesWithCache.create(
-      cacheOptions: const SharedPreferencesWithCacheOptions(allowList: {StorageConstants.categoriesSettingKey}),
+      cacheOptions: const SharedPreferencesWithCacheOptions(
+        allowList: {StorageConstants.categoriesSettingKey, StorageConstants.swipeBetweenStoriesWasShownKey},
+      ),
     );
   }
 }

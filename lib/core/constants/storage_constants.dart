@@ -2,5 +2,6 @@ class StorageConstants {
   StorageConstants._();
 
   // Storage Keys
-  static const String categoriesSettingKey = 'categories_setting';
+  static const String categoriesSettingKey = 'categoriesSetting';
+  static const String swipeBetweenStoriesWasShownKey = 'swipeBetweenStoriesWasShown';
 }
